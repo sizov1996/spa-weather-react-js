@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import { Input } from './Input';
+import { Card } from './Card';
+import shortid from 'shortid';
 
 function App() {
+  const citiesList = ['Moscow', 'Dubai', 'San Diego', 'Ulyanovsk']
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Main">
+      <div className='Wrap'>
+        <Input />
+        <div className='Card__list'>
+          {
+            citiesList.map(city => <Card key={shortid.generate()} city={city} />)
+          }
+        </div>
+      </div>
     </div>
   );
 }
