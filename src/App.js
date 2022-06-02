@@ -2,13 +2,15 @@ import './App.css';
 import { Input } from './Input';
 import { Card } from './Card';
 import shortid from 'shortid';
+import React, { useState } from 'react'
+
 
 function App() {
-  const citiesList = ['Moscow', 'Dubai', 'San Diego', 'Ulyanovsk']
+  const [citiesList, setCitiesList] = useState([]);
   return (
     <div className="Main">
       <div className='Wrap'>
-        <Input />
+        <Input setCitiesList={setCitiesList}/>
         <div className='Card__list'>
           {
             citiesList.map(city => <Card key={shortid.generate()} city={city} />)
