@@ -1,8 +1,7 @@
 import './App.css';
 import { Input } from './Input';
-import { Card } from './Card';
-import shortid from 'shortid';
 import React, { useState } from 'react'
+import { CardList } from './CardList';
 
 
 function App() {
@@ -11,11 +10,7 @@ function App() {
     <div className="Main">
       <div className='Wrap'>
         <Input setCitiesList={setCitiesList}/>
-        <div className='Card__list'>
-          {
-            citiesList.map(city => <Card key={shortid.generate()} city={city} />)
-          }
-        </div>
+        {citiesList.length === 1 && <CardList citiesList={citiesList}/>}
       </div>
     </div>
   );
